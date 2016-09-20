@@ -1,10 +1,9 @@
 var audio = document.querySelector("#audio");
 var source = document.querySelector("#source");
+// var context = new AudioContext();
 
-socket.on("blob", updateSource);
 
 function updateSource(data) {
-    source.src = data;
+    source.src = "http://localhost:3000/samples/the-offspring.mp3";
     audio.load();
-    audio.play();
 }
