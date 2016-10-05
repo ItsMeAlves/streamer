@@ -8,7 +8,7 @@ module.exports = function() {
                 title: request.params.title,
                 artist: request.params.artist,
                 path: request.files.fileupload.path,
-                uploader: request.session.user.id
+                uploader: request.session.user._id
             });
 
             music.save();

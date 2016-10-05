@@ -12,7 +12,6 @@ musicSchema.methods.generateUrl = function() {
 }
 
 var Music;
-
 if(mongoose.models.Music) {
     Music = mongoose.model("Music");
 }
