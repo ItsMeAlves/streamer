@@ -1,9 +1,4 @@
 module.exports = function(app) {
-    var user = {
-        email: "email@email.com",
-        password: "123"
-    }
-
     app.get("/", (request, response) => {
         response.render("index");
     });
@@ -12,19 +7,31 @@ module.exports = function(app) {
         response.render("login");
     });
 
-    app.post("/login", app.middlewares.form, (request, response) => {
-        console.log(request.params);
-        if(request.params.email === user.email &&
-            request.params.password === user.password) {
-            request.session.user = true;
-        }
+    app.post("/login", app.middlewares.form,
+        app.controllers.AuthController.login);
 
-        response.redirect("/dashboard");
+    app.get("/logout", app.controllers.AuthController.logout);
+
+    app.get("/signup", (request, response) => {
+        response.render("signup");
     });
 
-    app.get("/dashboard", app.middlewares.auth, (request, response) => {
-        response.render("dashboard", {
-            user: request.session.user
-        });
+    app.post("/signup", app.middlewares.form,
+        app.controllers.RegisterController.signup);
+
+    app.get("/dashboard", app.middlewares.auth,
+        app.controllers.UserController.dashboard);
+
+    app.get("/add", app.middlewares.auth, (request, response) => {
+        response.render("add");
     });
+
+    app.post("/add", app.middlewares.auth, app.middlewares.form,
+        app.controllers.ContentController.add);
+
+    app.get("/music", app.middlewares.auth,
+        app.controllers.ContentController.getMusic);
+
+    app.get("/all", app.middlewares.auth,
+        app.controllers.ContentController.listAll);
 }

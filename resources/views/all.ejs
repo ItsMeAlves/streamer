@@ -2,21 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>dashboard</title>
+        <title>Streamer</title>
     </head>
     <body>
-        <% if(user) { %>
-            <h1>Logged in!</h1>
-        <% } else { %>
-            <h1>Not logged</h1>
-        <% } %>
-
-        <a href="/add">Adicionar músicas</a>
-        <a href="/all">Ver todas as músicas</a>
-        <a href="/logout">Sair</a>
-
         <% if(entries.length > 0) { %>
-            <h3>Músicas enviadas por você</h3>
+            <h3>Músicas enviadas por todos</h3>
             <ul>
                 <% for(var i = 0; i < entries.length; i++) { %>
                     <li>
@@ -28,7 +18,8 @@
                 <% } %>
             </ul>
         <% } else { %>
-            <h3>Você ainda não enviou músicas</h3>
+            <h3>Ainda não há músicas no streamer</h3>
         <% } %>
+
     </body>
 </html>
