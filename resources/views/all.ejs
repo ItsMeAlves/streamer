@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Streamer</title>
-    </head>
-    <body>
-        <% if(entries.length > 0) { %>
-            <h3>Músicas enviadas por todos</h3>
-            <ul>
-                <% for(var i = 0; i < entries.length; i++) { %>
-                    <li>
-                        <%= entries[i].title %> - <%= entries[i].artist %>
-                        <audio controls="controls" class="player">
-                            <source type="audio/mp3" src="/music?path=/<%= entries[i].path %>">
-                        </audio>
-                    </li>
-                <% } %>
-            </ul>
-        <% } else { %>
-            <h3>Ainda não há músicas no streamer</h3>
-        <% } %>
+<% include header.ejs %>
+    <% if(entries.length > 0) { %>
+        <h3>Músicas enviadas por todos</h3>
+        <ul>
+            <% for(var i = 0; i < entries.length; i++) { %>
+                <li>
+                    <%= entries[i].title %> - <%= entries[i].artist %>
+                    <audio controls="controls" class="player">
+                        <source type="audio/mp3" src="/music?path=/<%= entries[i].path %>">
+                    </audio>
+                </li>
+            <% } %>
+        </ul>
+    <% } else { %>
+        <h3>Ainda não há músicas no streamer</h3>
+    <% } %>
 
-    </body>
-</html>
+<% include footer.ejs %>

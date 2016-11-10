@@ -6,7 +6,6 @@ module.exports = function() {
         dashboard(request, response) {
             Music.find({uploader: request.session.user._id}, (err, result) => {
                 response.render("dashboard", {
-                    user: request.session.user,
                     entries: result
                 });
             });

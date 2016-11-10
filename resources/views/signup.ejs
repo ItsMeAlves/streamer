@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>signup</title>
-    </head>
-    <body>
-        <form action="/signup" method="post">
-            <input name="firstName" placeholder="primeiro nome"/>
-            <input name="lastName" placeholder="último nome"/>
-            <input name="email" type="email" placeholder="email"/>
-            <input name="password" type="password" placeholder="senha"/>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </body>
-</html>
+<% include header.ejs %>
+    <form action="/signup" method="post">
+        <input name="firstName" placeholder="primeiro nome"/>
+        <input name="lastName" placeholder="último nome"/>
+        <input name="email" type="email" placeholder="email"/>
+        <input name="password" type="password" placeholder="senha"/>
+        <button type="submit">Cadastrar</button>
+    </form>
+<% include footer.ejs %>
